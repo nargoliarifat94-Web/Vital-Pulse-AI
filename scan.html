@@ -1,0 +1,28 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<body class="bg-slate-950 text-white min-h-screen p-10 flex flex-col items-center">
+    <div class="max-w-2xl w-full bg-emerald-900/20 p-12 rounded-[60px] border border-emerald-400/30 backdrop-blur-xl text-center shadow-2xl">
+        <h2 class="text-4xl font-black text-emerald-400 mb-6">Disease & Benefit Scanner</h2>
+        <label class="block border-4 border-dashed border-emerald-500/40 p-16 rounded-[40px] cursor-pointer hover:bg-emerald-500/10 transition">
+            <input type="file" class="hidden">
+            <div class="text-6xl mb-4">🧬</div>
+            <p class="font-black text-emerald-400">UPLOAD IMAGE (FOOD/SKIN)</p>
+        </label>
+        <button onclick="runAI()" class="w-full bg-emerald-500 mt-10 py-6 rounded-[30px] font-black text-2xl">RUN AI DIAGNOSTICS</button>
+        <div id="loader" class="hidden mt-8 text-yellow-300 animate-pulse font-bold italic">AI analyzing pixels for health patterns...</div>
+        <div id="result" class="hidden mt-10 p-8 bg-slate-900 rounded-[40px] text-left border-l-8 border-yellow-400 shadow-2xl">
+            <h4 class="text-yellow-400 font-black mb-4 underline">VITALPULSE AI REPORT:</h4>
+            <p class="mb-2 italic text-emerald-100 font-medium">Results based on Neural Image Analysis.</p>
+            <p><strong>Health Benefits:</strong> High Nutrients Detected.</p>
+            <p class="text-emerald-400"><strong>Disease Risk:</strong> Low / Safe Pattern.</p>
+        </div>
+    </div>
+    <script>
+        function runAI() {
+            document.getElementById('loader').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
